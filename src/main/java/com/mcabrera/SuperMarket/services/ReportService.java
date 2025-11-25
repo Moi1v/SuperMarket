@@ -1,11 +1,11 @@
 package com.mcabrera.SuperMarket.services;
 
 import com.mcabrera.SuperMarket.dtos.TopProductDTO;
-import com.mcabrera.SuperMarket.entities.SaleDetail;
+import com.mcabrera.SuperMarket.entities.Sale;
 import com.mcabrera.SuperMarket.exceptions.ResourceNotFoundException;
 import com.mcabrera.SuperMarket.repositories.IBranchRepository;
 import com.mcabrera.SuperMarket.repositories.ISaleDetailRepository;
-import com.mcabrera.SuperMarket.repositories.ISaleDetailRepository;
+import com.mcabrera.SuperMarket.repositories.ISaleRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

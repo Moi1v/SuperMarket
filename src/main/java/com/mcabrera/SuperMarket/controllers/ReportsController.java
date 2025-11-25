@@ -1,6 +1,5 @@
 package com.mcabrera.SuperMarket.controllers;
 
-
 import com.mcabrera.SuperMarket.dtos.TopProductDTO;
 import com.mcabrera.SuperMarket.services.ReportService;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -23,16 +22,16 @@ public class ReportsController {
 
     @GetMapping("/branch-sales")
     public ResponseEntity<Map<String, Object>> getBranchSalesReport(
-            @RequestParam("branch_id") Long branchId,
-            @RequestParam("start") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime start,
-            @RequestParam("end") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime end) {
+            @RequestParam(value = "branch_id", required = true) Long branchId,
+            @RequestParam(value = "start", required = true) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime start,
+            @RequestParam(value = "end", required = true) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime end) {
 
         return ResponseEntity.ok(reportService.getBranchSalesReport(branchId, start, end));
     }
 
     @GetMapping("/top-products")
     public ResponseEntity<List<TopProductDTO>> getTopProducts(
-            @RequestParam(value = "limit", defaultValue = "5") int limit) {
+            @RequestParam(value = "limit", required = false, defaultValue = "5") int limit) {
 
         return ResponseEntity.ok(reportService.getTopProducts(limit));
     }
